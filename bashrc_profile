@@ -1,0 +1,29 @@
+### SYNOLOGY DSM 7
+### EDIT /etc.defauults/.bashrc_profile
+
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias ARPSHORT="sudo watch -n 30 arp-scan 192.168.1.0/24"
+alias ARPLONG="sudo watch -n 600 arp-scan 192.168.1.0/24"
+alias NET="python3 Check_Internet_Connectivity.py"
+alias COXXX="ssh -N -R XXX:localhost:XXX root@XXX -pXXX -i .ssh/XXXKEYXXX"
+alias TMUX="tmux at -t 0"
+alias TMUX1="tmux at -t 1"
+
+HISTFILE=/var/services/homes/XXX/.bash_history
+
+
+HISTCONTROL=ignoreboth:erasedups
+HISTTIMEFORMAT='%F %T  '
+HISTIGNORE='history:ls:pwd:date:cd:exit:htop:free'
+
+HISTFILESIZE=1000000
+HISTSIZE=1000000
+
+bind '"\e[1~": beginning-of-line' &> /dev/null
+bind '"\e[4~": end-of-line' &> /dev/null
+
+if [ -f ~/.bashrc ]; then
+    source ~/.bashrc
+fi
